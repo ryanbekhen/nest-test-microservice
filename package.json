@@ -1,0 +1,47 @@
+{
+  "name": "@ryanbekhen/nest-test-microservice",
+  "version": "1.0.0",
+  "description": "CLI for testing the NestJS microservices transport layer.",
+  "main": "./lib/netest.js",
+  "bin": {
+    "netest": "./lib/netest.js"
+  },
+  "scripts": {
+    "start": "ts-node src/netest.ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "build": "tsc -p .",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "keywords": [
+    "nestjs tester",
+    "tester",
+    "cli"
+  ],
+  "author": {
+    "name": "Achmad Irianto Eka Putra",
+    "email": "ryanbekhen.official@gmail.com",
+    "url": "https://www.ryanbekhen.me"
+  },
+  "license": "Apache-2.0",
+  
+  "dependencies": {
+    "@nestjs/microservices": "^8.2.4",
+    "chalk": "^4.1.2",
+    "commander": "^8.3.0",
+    "redis": "^3.1.2",
+    "rxjs": "^7.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.7",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.4.0",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.5.4"
+  }
+}
